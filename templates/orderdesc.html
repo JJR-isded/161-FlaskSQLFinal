@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA COmpatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Knowledge Masters</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/stylesheets/style.css">
+
+</head>
+<body>
+    <div class="header">
+            <div class="top-nav">
+                <ul>
+                    <li><a href="/home.html/">HOME</a></li>
+                    <li><a href="/home.html/addorders.html">ADD NEW ORDER</a></li>
+                    <li><a href="/home.html/tickets.html">MANAGE ORDERS</a></li>
+                </ul>
+                <a href="/home.html/help.html">
+                <button>HELP</button>
+                </a>
+            </div>
+
+            <div class="side-nav">
+                <img src = "/static/stylesheets/images/logo.png" class="logo">
+                <a href="#">KNOWLEDGE MASTERS</a>
+            </div>
+            <div class="orders">
+                <h1> Order ID:{{order.orderid}}  | ORDER: {{ order.item }}</h1>
+                <dic class="icon">
+                    <p>STATUS: {{ order.status}}</p>
+                    <ul>
+                        <li>CUSTOMER NAME: {{ order.name }}</li>
+                        <li>EMAIL ADDRESS: {{ order.email }}</li>
+                        <li>CELLPHONE NUMBER: {{ order.cp_number }}</li>
+                        <li>ADDRESS: {{ order.address }}</li>
+                    </ul>
+                    <form action="{{ url_for('modify') }}" method="post">
+                        <input type="hidden" name="order_id" value="{{ order.orderid }}">
+                        <input class="btn btn-secondary" type="submit" name="modify" value="edit"></input>
+                        <input class="btn btn-danger" type="submit" name="modify" value="delete"></input>
+                    </form>
+                </dic>
+                <ul>
+                    {% for order in orders%}
+                    <li><a href="/orders.html/{{order.orderid}}"><button>{{ order.orderid }}</button></a></li>
+                    {% endfor %}
+                    </a>
+                </ul>
+            </div>
+            <div class="pictureback">
+            </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!-- {% extends 'base.html' %}
+{% block content %}
+<h1>Order ID:{{order.orderid}}  | ORDER: {{ order.item }}</h1>
+<p>{{ order.status}}</p>
+<ul>
+    <li>CUSTOMER NAME: {{ order.name }}</li>
+    <li>EMAIL ADDRESS: {{ order.email }}</li>
+    <li>CELLPHONE NUMBER: {{ order.cp_number }}</li>
+    <li>ADDRESS: {{ order.cp_number }}</li>
+</ul>
+<form action="{{ url_for('modify') }}" method="post">
+    <input type="hidden" name="order_id" value="{{ order.orderid }}">
+    <input class="btn btn-secondary" type="submit" name="modify" value="edit"></input>
+    <input class="btn btn-danger" type="submit" name="modify" value="delete"></input>
+</form>
+{% endblock %} -->
+

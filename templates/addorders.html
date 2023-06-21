@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA COmpatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Knowledge Masters</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/stylesheets/style.css">
+
+</head>
+<body>
+    <div class="header">
+            <div class="top-nav">
+                <ul>
+                    <li><a href="/home.html/">HOME</a></li>
+                    <li><a href="/home.html/addorders.html">ADD NEW ORDER</a></li>
+                    <li><a href="/home.html/tickets.html">MANAGE ORDERS</a></li>
+                </ul>
+                <a href="/home.html/help.html">
+                <button>HELP</button>
+                </a>
+            </div>
+
+            <div class="side-nav">
+                <img src = "/static/stylesheets/images/logo.png" class="logo">
+                <a href="#">KNOWLEDGE MASTERS</a>
+            </div>
+            <div class="orders">
+                <h1> ADD ORDERS</h1>
+                <form action="{{ url_for('processing') }}" method="post">
+                    <label for="o_status">Status of order:</label>
+                    <select name="order_status" id="o_status" required>
+                        <option disabled selected value>...</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select><br><br>
+                    <label for="o_name">Name of Customer:</label>
+                    <input type="text" name="order_name" id="o_name" required><br><br>
+                    <label for="o_id">orderid:</label>
+                    <input type="text" name="order_id" id="o_id" required><br><br>
+                    <label for="o_email">Customer email:</label>
+                    <input type="text" name="order_email" id="o_email"><br><br>
+                    <label for="o_cp">Customer phone number:</label>
+                    <input type="number" name="order_cpnumber" id="o_cp"><br><br>
+                    <label for="o_item">Ordered item:</label>
+                    <input type="text" name="order_item" id="o_item"><br><br>
+                    <textarea name="order_address" placeholder="Billing Address" cols="30" rows="10"></textarea><br>
+                    <input type="submit" value="Add pending/completed order!">
+                    
+                </form>
+            </div>
+            <div class="pictureback">
+            </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!-- {% extends 'base.html' %}
+
+{% block content %}
+<h1>Add New Orders</h1>
+<form action="{{ url_for('processing') }}" method="post">
+    <label for="o_status">Status of order:</label>
+    <select name="order_status" id="o_status" required>
+        <option disabled selected value>...</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+    </select><br><br>
+    <label for="o_name">Name of Customer:</label>
+    <input type="text" name="order_name" id="o_name" required><br><br>
+    <label for="o_id">orderid:</label>
+    <input type="text" name="order_id" id="o_id" required><br><br>
+    <label for="o_email">Customer email:</label>
+    <input type="text" name="order_email" id="o_email"><br><br>
+    <label for="o_cp">Customer phone number:</label>
+    <input type="number" name="order_cpnumber" id="o_cp"><br><br>
+    <label for="o_item">Ordered item:</label>
+    <input type="text" name="order_item" id="o_item"><br><br>
+    <textarea name="order_address" placeholder="Billing Address" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="Add pending/completed order!">
+    
+</form>
+{% endblock %} -->
